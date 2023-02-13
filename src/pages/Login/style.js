@@ -8,6 +8,8 @@ export const LoginSection = styled.section`
   justify-content: center;
   align-items: center;
   margin-top: 200px;
+
+ 
 `;
 
 export const LinkStyled = styled(Link)`
@@ -39,11 +41,8 @@ export const LoginForm = styled.form`
     color: var(--grey-0);
     text-align: center;
   }
+  
 
-  div {
-    width: 100%;
-    background-color: yellow;
-  }
 
   .notAccountYet {
     text-align: center;
@@ -61,6 +60,7 @@ export const LoginForm = styled.form`
     text-decoration: none;
     color: white;
     font-weight: bold;
+  
   }
 
   .registerButton {
@@ -79,6 +79,8 @@ export const LoginForm = styled.form`
     color: white;
   }
 
+  
+
   .errorMessage {
     font-size: 12px;
     color: var(--negative-toastify);
@@ -86,13 +88,14 @@ export const LoginForm = styled.form`
     color: var(--negative-toastify);
   }
 
+
   .inputEmail,
   .inputPass {
     display: block;
-    margin: 0 auto;
+    margin-bottom: 14px;
     text-align: left;
     width: 100%;
-    padding-block: 8px;
+    padding: 12px;
     background-color: #343b41;
     color: var(--grey-01);
     border-radius: 4px;
@@ -105,17 +108,9 @@ export const LoginForm = styled.form`
   .inputPass::placeholder {
     color: var(--grey-01);
   }
-
-  .Email,
-  .Pass {
-    text-align: left;
-    display: block;
-    font-size: 12px;
-    font-weight: 400;
-    margin-bottom: 6px;
-  }
-
+  
   .loginButton {
+    margin-top: 8px;
     background-color: var(--pink-primary);
     color: var(--grey-01);
     cursor: pointer;

@@ -11,6 +11,8 @@ export const StyledRegister = styled.section`
     color: var(--pink-primary);
   }
 
+
+
   button {
     background-color: #212529;
     color: white;
@@ -46,6 +48,7 @@ export const StyledSection = styled.section`
   padding: 34px 18px;
   border-radius: 4px;
   margin-inline: 12px;
+  
 
   div > section h3,
   div > section p {
@@ -66,7 +69,8 @@ export const StyledSection = styled.section`
 
   label {
     display: block;
-    margin-bottom: 4px;
+    padding: 4px;
+    margin-top: 4px;
   }
 
   input,
