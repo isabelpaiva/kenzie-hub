@@ -38,7 +38,8 @@ export const Login = () => {
         localStorage.setItem("@USERID", response.data.user.id);
         setTimeout(() => {
           navigate("/");
-        }, 1000);
+        }, 1000),
+          toast.success("Login realizado com sucesso!");
       })
       .catch((error) => {
         toast.error("Email ou senha incorretos");
