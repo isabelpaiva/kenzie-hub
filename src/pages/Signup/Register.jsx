@@ -3,11 +3,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
-import api from "../../services/api";
-import { useNavigate } from "react-router-dom";
 import { StyledRegister, StyledSection } from "./styles";
 import Input from "../../components/Input";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
 
 const schema = yup
   .object({
@@ -28,30 +27,16 @@ const schema = yup
   .required();
 
 const Signup = () => {
-  const navigate = useNavigate();
+
+  const {onSubmit} = useContext(UserContext)
 
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
-
-  const onSubmit = async (data) => {
-    delete data.passwordConfirmation;
-    try {
-      await api.post("/users", data);
-      navigate("/");
-      console.log(data);
-      toast.success("Conta criada com sucesso!");
-    } catch (error) {
-      console.log(error);
-      toast.error("Ops! Algo deu errado");
-      reset();
-    }
-  };
 
   return (
     <>
@@ -125,7 +110,7 @@ const Signup = () => {
               id="contact"
               placeholder="Opção de contato"
               label="Contato"
-              {...register('contact')}
+              {...register("contact")}
               errors={errors.contact?.message}
             ></Input>
 

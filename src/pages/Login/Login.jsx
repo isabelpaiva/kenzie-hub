@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { LoginSection, Title, LoginForm } from "./style";
 import { useForm } from "react-hook-form";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import api from "../../services/api";
-import { toast } from "react-toastify";
+import {
+  Link,
+  Navigate,
+  useInRouterContext,
+  useNavigate,
+} from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Input from "../../components/Input";
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext.jsx";
 
 const schema = yup
   .object({
@@ -16,60 +21,16 @@ const schema = yup
   .required();
 
 export const Login = () => {
-  const [userLogged, setUserLogged] = useState([]);
 
-  const navigate = useNavigate();
+  const {onSubmitLogin, requisition} = useContext(UserContext)
 
-  const {
-    register,
-    handleSubmit,
-
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
-
-  const onSubmit = async (data) => {
-    api
-      .post("https://kenziehub.herokuapp.com/sessions", data)
-      .then((response) => {
-        localStorage.clear();
-        localStorage.setItem("@TOKEN", response.data.token);
-        localStorage.setItem("@USERID", response.data.user.id);
-        setTimeout(() => {
-          navigate("/");
-        }, 1000),
-          toast.success("Login realizado com sucesso!");
-      })
-      .catch((error) => {
-        toast.error("Email ou senha incorretos");
-      });
-  };
-
-  useEffect(() => {
-    const requisition = (data) => {
-      const token = localStorage.getItem("@TOKEN");
-
-      if (token) {
-        api.defaults.headers.authorization = `Bearer ${token}`;
-        api
-          .get("/profile", data)
-          .then((response) => {
-            setUserLogged(response.data);
-            navigate("/dashboard");
-          })
-          .catch((error) => toast.error("Algo deu errado!"));
-      }
-    };
-
-    requisition();
-  });
+  const {  register, handleSubmit, formState: { errors } } = useForm({ resolver: yupResolver(schema)});
 
   return (
     <>
       <LoginSection>
         <Title>Kenzie Hub</Title>
-        <LoginForm onSubmit={handleSubmit(onSubmit)}>
+        <LoginForm onSubmit={handleSubmit(onSubmitLogin)}>
           <h2>Login</h2>
 
           <Input
