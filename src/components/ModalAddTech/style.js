@@ -8,6 +8,7 @@ export const ModalContainer = styled.div`
 export const Modal = styled.div`
   position: absolute;
   margin: 0 auto;
+  top: 180px;
   border-radius: var(--border-radius-1);
   box-shadow: 2px 5px 15px 5px rgba(0, 0, 0, 0.31);
   animation: transition 1.4s ease;
@@ -16,17 +17,19 @@ export const Modal = styled.div`
   border-radius: 3.20867px;
   transition: 0.2s ease;
   padding-bottom: 15px;
+
     @media (min-width: 375px) {
     width: 330px;
   }
   @media (min-width: 425px) {
+   
     width: 380px;
   }
   @media (min-width: 768px) {
+    top: 1;
     width: 440px;
   }
   @media (min-width: 1000px) {
-    top: 100px;
   }
 
 `;

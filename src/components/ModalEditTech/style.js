@@ -8,6 +8,7 @@ export const Container = styled.div`
 export const DivModal = styled.div`
   position: absolute;
   margin: 0 auto;
+  top: 180px;
   border-radius: var(--border-radius-1);
   box-shadow: 2px 5px 15px 5px rgba(0, 0, 0, 0.31);
   animation: transition 1.4s ease;
@@ -26,7 +27,6 @@ export const DivModal = styled.div`
     width: 440px;
   }
   @media (min-width: 1000px) {
-    top: 100px;
   }
   @keyframes transition {
     from {
