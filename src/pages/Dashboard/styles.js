@@ -80,4 +80,16 @@ export const MainDash = styled.div`
     padding: 8px;
     cursor: pointer;
   }
-`;
+
+  `;
+
+export const EmptyDiv = styled.div`
+  padding: 21px;
+h3{
+  color: white;
+  font-size: 14px;
+  font-weight: lighter;
+}
+
+
+`

@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 
-import { Container, DashboardDiv, UserInfos, MainDash } from "./styles";
+import { Container, DashboardDiv, UserInfos, MainDash, EmptyDiv } from "./styles";
 import { UserContext } from "../../contexts/UserContext.jsx";
 import { useContext } from "react";
 import ModalAddTech from "../../components/ModalAddTech";
@@ -30,7 +30,7 @@ export const Dashboard = () => {
         <button onClick={() => setModalOpen(true)}>+</button>
       </MainDash>
       {
-        user.techs?.length ? 
+        user.techs?.length? 
         (
           <ul>
            { user.techs.map((tech) => (
@@ -39,7 +39,9 @@ export const Dashboard = () => {
           </ul>
         )
         : 
-        <></>
+        <EmptyDiv>
+          <h3> Você ainda não adicionou nenhuma tecnologia :(</h3>
+        </EmptyDiv>
       }
 
         {modalOpen ? <ModalAddTech /> : null}

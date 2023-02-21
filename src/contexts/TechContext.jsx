@@ -1,6 +1,7 @@
 import { useState, useContext, createContext, useEffect } from "react";
 import api from "../services/api";
 import { UserContext } from "./UserContext";
+import { toast } from "react-toastify";
 
 export const TechContext = createContext({});
 
@@ -32,6 +33,7 @@ export const TechProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         },
       })
+      toast.success('Tecnologia criada com sucesso!')
       setModalOpen(false)
       console.log(response.data)
     } catch(err) {
@@ -47,6 +49,7 @@ export const TechProvider = ({ children }) => {
           Authorization: `Bearer ${token}`
         }
       })
+      toast.success('Tecnologia editada com sucesso!')
       setModalEdit(false)
     } catch (err) {
       
@@ -62,6 +65,7 @@ export const TechProvider = ({ children }) => {
           Authorization: `Bearer ${token}`,
         }
        })
+       toast.success('Tecnologia removida com sucesso!')
        console.log('jiowfdnewjfnwl')
        setModalEdit(false)
     } catch (err) {
