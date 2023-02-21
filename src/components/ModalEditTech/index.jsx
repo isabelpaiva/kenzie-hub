@@ -1,5 +1,9 @@
+import { yupResolver } from "@hookform/resolvers/yup";
 import React from "react";
 import { useContext } from "react";
+import { useForm } from "react-hook-form";
+import { TechContext } from "../../contexts/TechContext";
+import * as yup from "yup";
 import {
   BtnDelete,
   BtnSave,
@@ -13,9 +17,14 @@ import {
   Button,
   Select,
 } from "./style";
+import { UserContext } from "../../contexts/UserContext";
+
 
 export const ModalEditTech = () => {
-
+   
+   const { updateTech, removeTech, idParam } = useContext(TechContext)
+   const { state, skill, setModalEdit } = useContext(UserContext)
+   const { register, handleSubmit } = useForm();
 
   return (
     <Container>
@@ -23,21 +32,22 @@ export const ModalEditTech = () => {
         <Div>
           <DivEdit>
             <h4>Editar Tecnologia</h4>
-            <Button>X</Button>
+            <Button onClick={() => setModalEdit(false)}>X</Button>
           </DivEdit>
         </Div>
-        <Form>
-          <label>Nome do projeto</label>
-          <Input/>
-          <label>Status</label>
-          <Select>
+        <Form onSubmit={handleSubmit(updateTech)}>
+          <label htmlFor="name_project">Nome do projeto</label>
+          <Input placeholder={state} disabled/>
+          <label htmlFor="status">Status</label>
+          <Select {...register("status")}>
+            <option value={skill} required hidden>{skill}</option>
             <option value="Iniciante">Iniciante</option>
             <option value="Intermediário">Intermediário</option>
             <option value="Avançado">Avançado</option>
           </Select>
           <DivBtn>
-            <BtnSave type="submit">Salvar Alterações</BtnSave>
-            <BtnDelete type="submit"> Remover </BtnDelete>
+            <BtnSave id={idParam} type="submit">Salvar Alterações</BtnSave>
+            <BtnDelete id={idParam} onClick={removeTech}> Remover </BtnDelete>
           </DivBtn>
         </Form>
       </DivModal>

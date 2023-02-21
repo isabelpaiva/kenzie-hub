@@ -19,7 +19,7 @@ import {
 export const ModalAddTech = () => {
   const { setModalOpen } = useContext(UserContext);
   const { addTech } = useContext(TechContext);
-
+  
   const formSchema = yup.object().shape({
     title: yup.string().required("Nome obrigatório"),
   });

@@ -1,27 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
 `;
 
 export const DivModal = styled.div`
-  position: relative;
-  width: 290px;
-  height: 312px;
+  position: absolute;
+  margin: 0 auto;
   border-radius: var(--border-radius-1);
   box-shadow: 2px 5px 15px 5px rgba(0, 0, 0, 0.31);
   animation: transition 1.4s ease;
   background: #212529;
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
-  top: 80px;
   transition: 0.2s ease;
-  z-index: 9999;
-  @media (min-width: 375px) {
+  padding-bottom: 15px;
+    @media (min-width: 375px) {
     width: 330px;
   }
   @media (min-width: 425px) {
@@ -33,7 +28,7 @@ export const DivModal = styled.div`
   @media (min-width: 1000px) {
     top: 100px;
   }
-  /* @keyframes transition {
+  @keyframes transition {
     from {
       opacity: 0;
       transform: translateY(-70%);
@@ -42,7 +37,7 @@ export const DivModal = styled.div`
       opacity: 1;
       transform: translateY(0%);
     }
-  } */
+  }
 `;
 
 export const Div = styled.div`
@@ -79,6 +74,7 @@ export const Button = styled.button`
   border: none;
   width: 20px;
   background: transparent;
+  cursor: pointer;
 `;
 
 export const Form = styled.form`
@@ -153,6 +149,7 @@ export const BtnSave = styled.button`
   color: #ffffff;
   border: 1.2182px solid #ff577f;
   border-radius: 4.06066px;
+  cursor: pointer;
 `;
 
 export const BtnDelete = styled.button`
@@ -166,6 +163,7 @@ export const BtnDelete = styled.button`
   font-weight: 500;
   font-size: 12.8347px;
   color: #ffffff;
+  cursor: pointer;
   :hover {
     filter: brightness(0.9);
   }

@@ -1,97 +1,78 @@
 import { useState, useContext, createContext, useEffect } from "react";
 import api from "../services/api";
+import { UserContext } from "./UserContext";
 
 export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
-  const [techList, setTechList] = useState();
-<<<<<<< HEAD
+  const [idParam, setIdParam] = useState("")
   const token = localStorage.getItem("@TOKEN");
-
-  const addTech =  async (data) => {
+  const { modalOpen, setUser, modalEdit, setModalOpen, setModalEdit } = useContext(UserContext) 
+  
+  useEffect(() => {
+    async function getTechs()  {
+      try { 
+         const response = await api.get("profile", {
+          headers: { 
+            Authorization: `Bearer ${token}`
+          }
+         })
+        setUser(response.data)
+      } catch (err) {
+         console.log(err)
+      }
+    }
+    getTechs()
+  }, [token, modalOpen, modalEdit])
+  
+  async function addTech(data) {
     try{
       const response = await api.post("users/techs", data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
+      setModalOpen(false)
       console.log(response.data)
     } catch(err) {
       
     }
   };
-=======
 
-  const techListAPI = user && user.techs;
+  async function updateTech(data) {
 
-  const token = localStorage.getItem("@TOKEN");
-
-  useEffect(() => {
-    setTechList(techListAPI);
-  }, [techListAPI]);
-
-  async function addTech(data) {
     try {
-      const response = await api.post("/users/techs", data, {
+      await api.put(`users/techs/${idParam}`, data, {
         headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      console.log(response.statusText);
-      setTechList([...techList, response.data]);
-    } catch (error) {
-      console.log(error.response.data.message);
-    }
-  }
->>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
-
-  async function removeTech(id) {
-    try {
-      const response = await api.delete("/users/techs/" + id, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log(response.statusText);
-
-      const filteredTechList = techList.filter((tech) => tech.id !== id);
-      setTechList(filteredTechList);
-    } catch (error) {
-      console.log(error.response.data.message);
-    }
-  }
-
-  async function updateTech(id, data) {
-    try {
-      const response = await api.put("/users/techs/" + id, data, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      console.log(response.statusText);
-
-      const newStatus = techList.map((tech) => {
-        if (tech.id === id) {
-          return { ...tech, status: data.status };
-        } else {
-          return { ...tech };
+          Authorization: `Bearer ${token}`
         }
-      });
-
-      setTechList(newStatus);
-    } catch (error) {
-      console.log(error.response.data.message);
+      })
+      setModalEdit(false)
+    } catch (err) {
+      
     }
+
+  } 
+
+  async function removeTech(e) {
+    e.preventDefault();
+    try {
+       await api.delete(`users/techs/${idParam}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        }
+       })
+       console.log('jiowfdnewjfnwl')
+       setModalEdit(false)
+    } catch (err) {
+
+    }
+
   }
+
 
   return (
-<<<<<<< HEAD
-    <TechContext.Provider value={{ addTech, updateTech, removeTech, techList }}>
-=======
-    <TechContext.Provider value={{ addTech, updateTech, removeTech, techList}}>
->>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
+    <TechContext.Provider value={{ addTech, updateTech, removeTech, idParam, setIdParam }}>
       {children}
     </TechContext.Provider>
   );

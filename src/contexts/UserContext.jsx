@@ -7,11 +7,11 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState([]);
-<<<<<<< HEAD
-  console.log(user)
-=======
->>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
+
   const [modalOpen, setModalOpen] = useState(false)
+  const [modalEdit, setModalEdit] = useState(false)
+  const [state, setState] = useState(null)
+  const [skill, setSkill] = useState(null)
   const navigate = useNavigate();
   const token = localStorage.getItem("@TOKEN");
 
@@ -80,7 +80,7 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   return (
-    <UserContext.Provider value={{ user, setUser, onSubmit, onSubmitLogin, clearLocalStorage, modalOpen, setModalOpen }}>
+    <UserContext.Provider value={{ user, setUser, onSubmit, onSubmitLogin, skill, setSkill, clearLocalStorage, state, setState, modalOpen, setModalOpen, modalEdit, setModalEdit }}>
       {children}
     </UserContext.Provider>
   );

@@ -1,31 +1,22 @@
 import styled from "styled-components";
 
 export const ModalContainer = styled.div`
-  margin: 0 auto;
-  width: 100%;
-<<<<<<< HEAD
-
-=======
-  height: 100vh;
->>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
   display: flex;
   justify-content: center;
 `;
 
 export const Modal = styled.div`
-  position: relative;
-  width: 290px;
-  height: 312px;
+  position: absolute;
+  margin: 0 auto;
   border-radius: var(--border-radius-1);
   box-shadow: 2px 5px 15px 5px rgba(0, 0, 0, 0.31);
   animation: transition 1.4s ease;
   background: #212529;
   box-shadow: 0px 3.20867px 32.0867px -8.02168px rgba(0, 0, 0, 0.25);
   border-radius: 3.20867px;
-  top: 80px;
   transition: 0.2s ease;
-  z-index: 9999;
-  @media (min-width: 375px) {
+  padding-bottom: 15px;
+    @media (min-width: 375px) {
     width: 330px;
   }
   @media (min-width: 425px) {
@@ -37,16 +28,7 @@ export const Modal = styled.div`
   @media (min-width: 1000px) {
     top: 100px;
   }
-  /* @keyframes transition {
-    from {
-      opacity: 0;
-      transform: translateY(-70%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0%);
-    }
-  } */
+
 `;
 
 export const Div = styled.div`
@@ -59,6 +41,17 @@ export const Div = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @keyframes transition {
+    from {
+      opacity: 0;
+      transform: translateY(-70%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
 `;
 
 export const DivFlex = styled.div`
@@ -91,7 +84,6 @@ export const Form = styled.form`
   flex-direction: column;
   width: 80%;
   margin: 0 auto;
-  margin-top: 30px;
 
   label {
     font-family: "Inter";
@@ -99,9 +91,9 @@ export const Form = styled.form`
     font-weight: 400;
     font-size: 9.772px;
     color: #f8f9fa;
-<<<<<<< HEAD
     margin-bottom: 4px;
     padding: 2px;
+    margin-top: 12px;
   }
 
   .errorMessage {
@@ -111,10 +103,6 @@ export const Form = styled.form`
     color: white;
   }
 
-=======
-    margin-bottom: 9px;
-  }
->>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
 `;
 
 export const Input = styled.input`
@@ -171,24 +159,7 @@ export const ButtonAdd = styled.button`
   border: 1.2182px solid #ff577f;
   border-radius: 4.06066px;
   margin-top: 30px;
+  cursor: pointer;
 `;
 
-export const ErrorModal = styled.span`
-  color: #ff577f;
-  font-size: 11px;
-  display: block;
-  margin: 0 auto;
-  margin-left: 0px;
-  margin-top: -15px;
-  margin-bottom: 10px;
-`;
 
-export const ErrorModalTwo = styled.span`
-  color: #ff577f;
-  font-size: 11px;
-  display: block;
-  margin: 0 auto;
-  margin-left: 0px;
-  margin-top: 4px;
-  margin-bottom: -18px;
-`;
