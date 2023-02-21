@@ -5,6 +5,7 @@ export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
   const [techList, setTechList] = useState();
+<<<<<<< HEAD
   const token = localStorage.getItem("@TOKEN");
 
   const addTech =  async (data) => {
@@ -19,6 +20,30 @@ export const TechProvider = ({ children }) => {
       
     }
   };
+=======
+
+  const techListAPI = user && user.techs;
+
+  const token = localStorage.getItem("@TOKEN");
+
+  useEffect(() => {
+    setTechList(techListAPI);
+  }, [techListAPI]);
+
+  async function addTech(data) {
+    try {
+      const response = await api.post("/users/techs", data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.statusText);
+      setTechList([...techList, response.data]);
+    } catch (error) {
+      console.log(error.response.data.message);
+    }
+  }
+>>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
 
   async function removeTech(id) {
     try {
@@ -62,7 +87,11 @@ export const TechProvider = ({ children }) => {
   }
 
   return (
+<<<<<<< HEAD
     <TechContext.Provider value={{ addTech, updateTech, removeTech, techList }}>
+=======
+    <TechContext.Provider value={{ addTech, updateTech, removeTech, techList}}>
+>>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
       {children}
     </TechContext.Provider>
   );

@@ -3,7 +3,11 @@ import styled from "styled-components";
 export const ModalContainer = styled.div`
   margin: 0 auto;
   width: 100%;
+<<<<<<< HEAD
 
+=======
+  height: 100vh;
+>>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
   display: flex;
   justify-content: center;
 `;
@@ -95,6 +99,7 @@ export const Form = styled.form`
     font-weight: 400;
     font-size: 9.772px;
     color: #f8f9fa;
+<<<<<<< HEAD
     margin-bottom: 4px;
     padding: 2px;
   }
@@ -106,6 +111,10 @@ export const Form = styled.form`
     color: white;
   }
 
+=======
+    margin-bottom: 9px;
+  }
+>>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
 `;
 
 export const Input = styled.input`

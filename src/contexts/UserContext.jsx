@@ -7,7 +7,10 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState([]);
+<<<<<<< HEAD
   console.log(user)
+=======
+>>>>>>> 5b6ccf944b64a6a0b70647278025800d27a445f8
   const [modalOpen, setModalOpen] = useState(false)
   const navigate = useNavigate();
   const token = localStorage.getItem("@TOKEN");
