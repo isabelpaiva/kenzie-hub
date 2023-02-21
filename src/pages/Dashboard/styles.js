@@ -59,6 +59,8 @@ export const MainDash = styled.div`
   margin-top: 15px;
   padding: 21px;
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
 
   p {
     font-size: 18px;
@@ -68,5 +70,14 @@ export const MainDash = styled.div`
   small {
     font-size: 16px;
     font-weight: lighter;
+  }
+
+  button{
+    background-color: var( --grey-3);
+    color: #ffff;
+    border: none;
+    font-weight: bold;
+    padding: 8px;
+    cursor: pointer;
   }
 `;
