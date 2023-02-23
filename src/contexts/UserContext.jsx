@@ -21,10 +21,8 @@ export const UserProvider = ({ children }) => {
     try {
       await api.post("/users", data);
       navigate("/");
-      console.log(data);
       toast.success("Conta criada com sucesso!");
     } catch (error) {
-      console.log(error);
       toast.error("Ops! Algo deu errado");
     }
   };

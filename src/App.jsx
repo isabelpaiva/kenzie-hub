@@ -1,10 +1,7 @@
-import GlobalStyle from "../global";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AppRoutes from './routes/index'
-import ModalEditTech from "./components/ModalEditTech";
-
-
+import AppRoutes from "./routes/index";
+import GlobalStyle from "./styles/global";
 
 function App() {
   return (

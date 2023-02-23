@@ -35,9 +35,8 @@ export const TechProvider = ({ children }) => {
       })
       toast.success('Tecnologia criada com sucesso!')
       setModalOpen(false)
-      console.log(response.data)
     } catch(err) {
-      
+      console.log(err)
     }
   };
 
@@ -52,7 +51,7 @@ export const TechProvider = ({ children }) => {
       toast.success('Tecnologia editada com sucesso!')
       setModalEdit(false)
     } catch (err) {
-      
+      console.log(err)
     }
 
   } 
@@ -66,10 +65,9 @@ export const TechProvider = ({ children }) => {
         }
        })
        toast.success('Tecnologia removida com sucesso!')
-       console.log('jiowfdnewjfnwl')
        setModalEdit(false)
     } catch (err) {
-
+      console.log(err)
     }
 
   }
