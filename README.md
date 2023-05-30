@@ -1,6 +1,6 @@
 # Kenzie Hub - Controle de Tecnologias
 
-Este projeto é focado em adicionar funcionalidades de controle de tecnologias. O objetivo principal é mover as funções de Login e Cadastro para um contexto de usuário, além de implementar um conjunto de funcionalidades para adicionar, editar e excluir tecnologias associadas aos perfis dos usuários.
+O Kenzie Hub é um projeto que visa facilitar o registro e gerenciamento das competências e habilidades tecnológicas dos usuários.
 
 ## Funcionalidades
 
