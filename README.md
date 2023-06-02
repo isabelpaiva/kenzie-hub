@@ -18,4 +18,4 @@ O Kenzie Hub é um projeto que visa facilitar o registro e gerenciamento das com
 - Styled Components
 - Axios
 
-Deploy da aplicação: https://vercel.com/isabelpaiva/react-entrega-kenzie-hub-isabelpaiva
+Deploy da aplicação: https://react-entrega-kenzie-hub-isabelpaiva.vercel.app/
